@@ -12,4 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ 
  */
+$white: white;
+$black: black;
+
+.navbar {
+  margin-bottom: 0;
+  background: $black;
+}
+body {
+  background: $black;
+  color: $white;
+  font-family: 'Merriweather', sans-serif;
+}
+
+.main{
+  padding: 20px;
+}
