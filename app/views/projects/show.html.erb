@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget-bg">
+        <div class="widget-heading clearfix">
+          <h5>Branches</h5>
+        </div>
+        <div class="widget-body clearfix">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Branch Name</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% unless @branches.to_s['message'].present? %>
+                <% @branches&.each do |branch| %>
+                  <% cache(branch) do %>
+                    <tr data-expanded="true">
+                      <td><%= branch['name'] %></td>
+                      <td><%= branch['commit']['url'] %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <tr data-expanded="true">
+                  <td>No branches found</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

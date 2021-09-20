@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget-bg">
+        <div class="widget-heading clearfix">
+          <h5>Projects</h5>
+        </div>
+        <div class="widget-body clearfix">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Project Name</th>
+                <th>Description</th>
+                <th>URL</th>
+                <th>Language</th>
+                <th>Fork</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @repos&.each do |repo| %>
+                <% cache(repo) do %>
+                  <tr data-expanded="true">
+                    <td><%= repo.name %></td>
+                    <td><%= repo.description %></td>
+                    <td><%= repo.url %></td>
+                    <td><%= repo.language %></td>
+                    <td><%= repo.forks_count %></td>
+                    <td><%= link_to 'Show', project_path(repo_name: repo.name) %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
